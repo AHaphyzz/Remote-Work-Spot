@@ -1,0 +1,29 @@
+<header class="site-header">
+    <div class="navbar-full">
+        <div class="navbar-content">
+                <h1>Remote Work Spots</h1>
+                <nav class="navbar-row">
+                    {% if request.endpoint != 'admin_login' %}
+                    {% if request.endpoint != 'add_cafe' %}
+                    <div class="navbar-left">
+                        {{ render_form(form, novalidate=True) }}
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                    <div class="navbar-right">
+                        {% if session['admin_logged_in'] %}
+                            {% if request.endpoint != 'add_cafe' %}
+                            <a href="{{ url_for('add_cafe') }}">➕ Add New Cafe</a>
+                            {% endif %}
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        {% else %}
+                            <a href="{{ url_for('admin_login') }}">Admin</a>
+                        {% endif %}
+                        {% if request.endpoint != 'homepage' %}
+                            <a href="{{ url_for('homepage') }}">Homepage</a>
+                        {% endif %}
+                    </div>
+                </nav>
+        </div>
+    </div>
+</header>

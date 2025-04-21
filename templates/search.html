@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="page-container">
+    <section id="cafe-container">
+        <h2>Search Cafe by name or location</h2>
+        <p>{% if searched_cafes|length > 1 %} {{ num }} cafes found {% else %} {{ num }} cafe found {% endif %}</p>
+        <div class="grid-container">
+        {% if searched_cafes %}
+            {% for cafe in searched_cafes %}
+                <div class="cafe-card">
+                    <div class="cafe-details">
+                        <h3>{{ cafe.name }}</h3>
+                        <p>Location: {{ cafe.location }}</p>
+                        <p><a href="{{ cafe.map_url }}" target="_blank" class="map-link">View on Google Map</a></p>
+                        <p>Toilets: {{ 'Yes' if cafe.has_toilet else 'No' }}</p>
+                        <p>Wi-fi: {{ 'Yes' if cafe.has_wifi else 'No' }}</p>
+                        <p>{{ 'Calls are allowed' if cafe.can_take_calls else 'Calls are not allowed' }}</p>
+                        <p>Coffee Price: {{ cafe.coffee_price }}</p>
+                        <p>Seat number: {{ cafe.seats }}</p>
+                        <p>Sockets: {{ 'Yes' if cafe.has_sockets else 'No' }}</p>
+                        {% if session['admin_logged_in'] %}
+                        <button class="cafe-button" onclick="deleteCafe({{ cafe.id }})">Delete</button>
+                        {% endif %}
+                    </div>
+                    <div class="cafe-image">
+                        <img src="{{ cafe.img_url }}" alt="{{ cafe.name }} Image">
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="no-cafe-contents">
+                    <p>No cafe in that location or by that name</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </section>
+    </main>
+{% endblock %}

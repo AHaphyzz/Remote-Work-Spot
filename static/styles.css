@@ -1,0 +1,277 @@
+/* General layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Main content area with spacing for footer */
+.page-container {
+    min-height: 100vh;
+    padding: 2rem 5vw 6rem; /* bottom padding for footer */
+    box-sizing: border-box;
+    background-color: #f9f9f9
+}
+
+/* HEADER SECTION */
+.site-header {
+    width: 100%;
+    background-color: #66bb6a;
+    color: white;
+}
+
+.navbar-full {
+    width: 100%;
+
+}
+
+.navbar-content {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 1rem 5vw;
+}
+
+.navbar-content h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.navbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.navbar-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-left form {
+    display: flex;
+    gap: 10px;
+    font-size: 1rem
+    padding: 0.75rem 1.5rem;
+}
+
+.navbar-left form input[type="search"], /* Target search input */
+.navbar-left form input[type="text"],    /* Target text input (if SearchField renders as text) */
+.navbar-left form .search-field {
+    padding: 0.75rem; /* Increase padding for a larger feel */
+    font-size: 1rem; /* Increase font size for better readability */
+    border: 1px solid #ccc; /* Adjust border style as needed */
+    border-radius: 4px; /* Optional: Rounded corners */
+    flex-grow: 1; /* Allow input to take up more space */
+    min-width: 200px; /* Set a minimum width for the input */
+}
+
+.navbar-left form input[type="submit"],
+.navbar-left form input.btn-primary[type="submit"] {
+    color: #66bb6a;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 1.5rem;
+
+}
+
+.navbar-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navbar-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER SECTION */
+.site-footer {
+    position: relative;
+    margin-top: -4rem;
+    height: 4rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    line-height: 4rem;
+}
+
+/* BODY OF HOMEPAGE */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    background-color: #f9f9f9
+}
+
+.cafe-card {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    gap; 10px
+}
+
+.cafe-details {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.cafe-details p {
+    margin: 0.5rem 0;
+}
+
+.cafe-image {
+    flex: 1;
+    max-height: 360px%;
+    overflow: hidden;
+}
+
+.cafe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cafe-button {
+    margin-top: 0.5rem;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cafe-button:hover {
+    background-color: #c9302c;
+}
+
+
+/*<-----------ADM Login------------------>*/
+.admin-form form {
+    max-width: 300px; /* Adjust as needed */
+    margin: 50px auto; /* Center the form */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 40px;
+}
+
+.admin-form form .mb-3 {
+    margin-bottom: 1.5rem; /* Adjust spacing between form groups */
+}
+
+.admin-form form .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.admin-form form .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box; /* Prevent padding from increasing the width */
+    font-size: 1rem;
+}
+
+.admin-form form .btn-primary {
+    background-color: #28a745; /* Green color */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* Make button full width */
+}
+
+.admin-form form .btn-primary:hover {
+    background-color: #1e7e34; /* Darker green on hover */
+}
+
+/* Optional: Adjust styles for required fields */
+.admin-form form .required .form-label::after {
+    content: " *";
+    color: red;
+}
+
+
+/* <-----------------------------ADD CAFE---------------------->*/
+.add-form-contents .form {
+    max-width: 600px; /* Adjust as needed for wider grid */
+    margin: 20px auto; /* Center the form */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid; /* Enable grid layout */
+    grid-template-columns: 1fr ; /* Two equal columns */
+    gap: 15px; /* Spacing between grid items */
+
+}
+
+
+h3 .add-form-contents{
+    grid-column: 1 / -1; /* Span all columns */
+}
+
+/* Style labels */
+.add-form-contents .form .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style input fields */
+.add-form-contents .form .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+
+* Style checkboxes to be in a 2-column layout */
+.add-form-contents .form .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.add-form-contents .form .form-check-input {
+    margin-right: 10px;
+}
+
+
+/* Center the submit button */
+.add-form-contents .form > input[type="submit"] {
+
+    margin-top: 20px;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff; /* Example button color */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center; /* Center the text within the button */
+}

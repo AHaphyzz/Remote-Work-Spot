@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="page-container">
+        <h3 class="add-form-contents">Add cafe</h3>
+         <div class="add-form-contents">
+            {{ render_form(add_form, novalidate=True, button_map={"submit": "primary"}) }}
+         </div>
+    </main>
+{% endblock %}

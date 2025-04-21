@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="page-container">
+        <div class="admin-form">
+         {{ render_form(form_adm, novalidate=True, button_map={"submit": "primary"}) }}
+        </div>
+    </main>
+{% endblock %}

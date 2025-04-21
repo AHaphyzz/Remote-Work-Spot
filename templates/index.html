@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="page-container">
+        <section id="cafe-container">
+            <h2>All Cafes</h2>
+            <p>Total cafes: {{ num }}</p>
+            <div class="grid-container">
+                {% if cafe_list %}
+                    {% for cafe in cafe_list %}
+                    <div class="cafe-card">
+                        <div class="cafe-details">
+                            <h3>{{ cafe.name }}</h3>
+                            <p>Location: {{ cafe.location }}</p>
+                            <p><a href="{{ cafe.map_url }}" target="_blank" class="map-link">View on Google Map</a></p>
+                            <p>Toilets: {{ 'Yes' if cafe.has_toilet else 'No' }}</p>
+                            <p>Wi-fi: {{ 'Yes' if cafe.has_wifi else 'No' }}</p>
+                            <p>{{ 'Calls are allowed' if cafe.can_take_calls else 'Calls are not allowed' }}</p>
+                            <p>Coffee Price: {{ cafe.coffee_price }}</p>
+                            <p>Seat number: {{ cafe.seats }}</p>
+                            <p>Sockets: {{ 'Yes' if cafe.has_sockets else 'No' }}</p>
+                            {% if session['admin_logged_in'] %}
+                            <button class="cafe-button" onclick="deleteCafe({{ cafe.id }})">Delete</button>
+                            {% endif %}
+                        </div>
+                        <div class="cafe-image">
+                            <img src="{{ cafe.img_url }}" alt="{{ cafe.name }} Image">
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+     <script>
+
+        function deleteCafe(cafeId) {
+            fetch(`/delete-cafe/${cafeId}`, {
+                method: "DELETE"
+            })
+            .then(response => {
+                if (response.status === 204) {
+                    location.reload(); // Reload the page after successful deletion
+                } else {
+                    alert("Failed to delete the cafe");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+    </script>
